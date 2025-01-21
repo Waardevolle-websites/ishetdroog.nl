@@ -11,7 +11,6 @@ navigator.permissions.query({ name: "geolocation" }).then((result) => {
         getLocationPrompt();
     } else if (result.state === "denied") {
         report(result.state);
-        document.title = "Is het droog? - Geen toestemming";
         answer.textContent = "Geen toestemming";
         text.textContent = "We hebben je locatie nodig om te bepalen of het droog is.";
         body.classList.toggle("error");
@@ -38,7 +37,6 @@ function success(position) {
 }
 
 function error() {
-    document.title = "Is het droog? - Geen toestemming";
     answer.textContent = "Geen toestemming";
     text.textContent = "We hebben je locatie nodig om te bepalen of het droog is.";
     body.classList.toggle("error");
@@ -55,12 +53,10 @@ async function getData(latitude, longitude) {
         const json = await response.json();
         console.log("Rain: " + json.current.rain)
         if (json.current.rain != 0) {
-            document.title = "Is het droog? - Nee";
             answer.textContent = "Nee";
             text.textContent = "Het is momenteel niet droog.";
             body.classList.toggle("wet");
         } else {
-            document.title = "Is het droog? - Ja";
             answer.textContent = "Ja";
             text.textContent = "Het is momenteel droog.";
             body.classList.toggle("dry");
