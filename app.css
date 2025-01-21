@@ -63,6 +63,7 @@ header span {
 
 footer span {
     font-size: 12px;
+    font-style: italic;
 }
 
 main .answer {
