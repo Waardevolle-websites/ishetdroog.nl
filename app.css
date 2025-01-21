@@ -109,6 +109,10 @@ main .text {
         font-size: 64px;
     }
 
+    .error main .answer {
+        font-size: 36px;
+    }
+
     main .text {
         font-size: 24px;
     }
