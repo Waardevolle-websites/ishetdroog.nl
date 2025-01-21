@@ -99,7 +99,7 @@ main .text {
 }
 
 @media screen and (max-width: 1200px) {
-    main .answer {
+    main .answer, .error main .answer {
         font-size: 48px;
         -webkit-text-stroke: 2px #000;
         text-shadow: 0px 4px 0px #000;
@@ -107,10 +107,6 @@ main .text {
 
     .dry main .answer, .wet main .answer {
         font-size: 64px;
-    }
-
-    .error main .answer {
-        font-size: 36px;
     }
 
     main .text {
