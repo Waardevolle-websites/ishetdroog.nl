@@ -62,8 +62,8 @@ header span {
 }
 
 footer span {
-    font-size: 12px;
-    font-style: italic;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 main .answer {
@@ -112,4 +112,24 @@ main .text {
     main .text {
         font-size: 24px;
     }
+
+    .left, .right {
+        display: none;
+    }
+}
+
+.left {
+    position: absolute;
+    width: 360px;
+    bottom: 0;
+    left: 0;
+    user-select: none;
+}
+
+.right {
+    position: absolute;
+    width: 360px;
+    bottom: 0;
+    right: 0;
+    user-select: none;
 }
