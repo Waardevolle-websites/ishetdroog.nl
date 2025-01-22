@@ -98,6 +98,43 @@ main .text {
     text-align: center;
 }
 
+.left {
+    position: absolute;
+    width: 360px;
+    bottom: 0;
+    left: 0;
+    user-select: none;
+}
+
+.right {
+    position: absolute;
+    width: 360px;
+    bottom: 0;
+    right: 0;
+    user-select: none;
+}
+
+.start {
+    margin: 0 auto;
+    padding: .5rem 3.5rem;
+    border: 4px solid #000;
+    border-radius: 5px;
+    box-shadow: 0px 4px 0px 0px #000;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 1.5rem;
+    width: 350px;
+    background-color: #fff;
+    transition: 200ms;
+}
+
+.start:hover {
+    background-color: #eeeeee;
+    box-shadow: unset;
+    transform: translateY(4px);
+}
+
 @media screen and (max-width: 1200px) {
     main .answer, .error main .answer {
         font-size: 48px;
@@ -116,20 +153,15 @@ main .text {
     .left, .right {
         display: none;
     }
-}
 
-.left {
-    position: absolute;
-    width: 360px;
-    bottom: 0;
-    left: 0;
-    user-select: none;
-}
-
-.right {
-    position: absolute;
-    width: 360px;
-    bottom: 0;
-    right: 0;
-    user-select: none;
+    .start {
+        padding: .125rem 2rem;
+        border: 2px solid #000;
+        border-radius: 5px;
+        box-shadow: 0px 2px 0px 0px #000;
+        font-weight: 400;
+        font-size: 16px;
+        margin-top: 1.5rem;
+        width: 250px;
+    }
 }

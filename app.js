@@ -1,24 +1,28 @@
-const body = document.querySelector("body")
+const body = document.querySelector("body");
 const answer = document.querySelector(".answer");
-const text = document.querySelector(".text")
+const text = document.querySelector(".text");
+const button = document.querySelector(".start");
 
-navigator.permissions.query({ name: "geolocation" }).then((result) => {
-    if (result.state === "granted") {
-        report(result.state);
-        getLocationPrompt();
-    } else if (result.state === "prompt") {
-        report(result.state);
-        getLocationPrompt();
-    } else if (result.state === "denied") {
-        report(result.state);
-        answer.textContent = "Geen toestemming";
-        text.textContent = "We hebben je locatie nodig om te bepalen of het droog is.";
-        body.classList.toggle("error");
-    }
-    result.addEventListener("change", () => {
-        report(result.state);
+function start() {
+    button.remove();
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "granted") {
+            report(result.state);
+            getLocationPrompt();
+        } else if (result.state === "prompt") {
+            report(result.state);
+            getLocationPrompt();
+        } else if (result.state === "denied") {
+            report(result.state);
+            answer.textContent = "Geen toestemming";
+            text.textContent = "We hebben je locatie nodig om te bepalen of het droog is.";
+            body.classList.toggle("error");
+        }
+        result.addEventListener("change", () => {
+            report(result.state);
+        });
     });
-});
+}
 
 function report(state) {
     console.log(`Permission ${state}`);
@@ -65,4 +69,5 @@ async function getData(latitude, longitude) {
         console.error(error.message);
     }
 }
-  
+
+button.addEventListener("click", start);
